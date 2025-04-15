@@ -34,7 +34,20 @@ class Typeahead {
         .catch(err => console.error(err));
     }
 
+    clear_title_suggestion_list(){
+        // Remove any existing title_suggestion_lists
+        document.querySelectorAll("#title_suggestion_list").forEach(elem=>elem.remove());
+    }
+
     insert_title_suggestions(json){
+
+        this.clear_title_suggestion_list();
+        
+        // Exit if no result to list
+        if(json.total_results == 0){
+            return;
+        }
+
         let ul = document.createElement("ul");
         ul.id = "title_suggestion_list"
         json.results.forEach(movie_details=>{
@@ -46,17 +59,15 @@ class Typeahead {
             anchor.innerHTML = `${movie_details.title} (${movie_details.release_date.split("-")[0]})`
 
             anchor.addEventListener('click', this.tmdb_film_data.bind(this, movie_details))
-
         })
-
-        // Remove any preexisting title suggestion lists
-        document.querySelectorAll("#title_suggestion_list").forEach(elem=>elem.remove());
-
         // Add new list
         this.component.append(ul);
     }
     
     tmdb_film_data(movie_details) {
+
+        this.clear_title_suggestion_list();
+        
         const options = {
             method: 'GET',
             headers: {
