@@ -1,1 +1,4 @@
 /.vscode
+
+# Do not store api details in repo!
+tmdb_token.js

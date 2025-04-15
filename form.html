@@ -14,21 +14,32 @@
 <body>
     <p>my type-a-head attempt.</p>
 
-    <form action="" method="get" class="form-example">
-        <div class="form-example">
-            <label for="movie_title">Title: </label>
-            <input type="text" name="movie_title" id="movie_title" required />
+    <form action="" method="get" class="form-film-list">
+        <div class="film-entry" id="film_01">
+            <label for="film_01_title">Title: </label>
+            <input type="text" title="Film title" name="film_01_title" id="film_01_title" required />
+            
+            <label for="film_01_year">Year: </label>
+            <input type="text" title="Year of production" name="film_01_year" id="film_01_year" />
+            
+            <label for="film_01_director">Director: </label>
+            <input type="text" title="Director of film" name="film_01_director" id="film_01_director"/>       
         </div>
-        <div class="form-example">
+
+        <div class="form-film-list">
             <label for="email">Email: </label>
             <input type="email" name="email" id="email" required />
         </div>
-        <div class="form-example">
+        <div class="form-film-list">
             <input type="submit" value="Subscribe!" />
         </div>
     </form>
 
     <script src="typeahead.js"></script>
+    <script  type="module">
+        import {tmdb_token} from './tmdb_token.js'
+        let typeahead_movie_title = new Typeahead( 1000, "#film_01", tmdb_token);
+    </script>
 </body>
 
 </html>
