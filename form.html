@@ -37,6 +37,17 @@
             <input type="text" title="Director of film" name="film_02_director" id="film_02_director"/>       
         </div>
 
+        <div class="film-entry" id="film_03">
+            <label for="film_03_title">Title: </label>
+            <input type="text" title="Film title" name="film_03_title" id="film_03_title" required />
+            
+            <label for="film_03_year">Year: </label>
+            <input type="text" title="Year of production" name="film_03_year" id="film_03_year" />
+            
+            <label for="film_03_director">Director: </label>
+            <input type="text" title="Director of film" name="film_03_director" id="film_03_director"/>       
+        </div>
+
         <div class="form-film-list">
             <label for="email">Email: </label>
             <input type="email" name="email" id="email" required />
@@ -49,8 +60,9 @@
     <script src="typeahead.js"></script>
     <script  type="module">
         import {tmdb_token} from './tmdb_token.js'
-        let typeahead_movie_details_01 = new Typeahead( 1000, "#film_01", tmdb_token);
-        let typeahead_movie_details_02 = new Typeahead( 1000, "#film_02", tmdb_token);
+        document.querySelectorAll(".film-entry").forEach(entry=>{
+            new Typeahead( 1000, "#"+entry.id, tmdb_token);
+        })
     </script>
 </body>
 
