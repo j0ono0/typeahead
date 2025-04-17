@@ -1,13 +1,13 @@
 
 class Typeahead {
-    constructor(delay, selector, tmdb_token) {
+    constructor(delay, component, tmdb_token) {
         this.timer;
         this.delay = delay;
         this.tmdb_token = tmdb_token;
-        this.component = document.querySelector(selector);
-        this.input_title = this.component.querySelector(`${selector}_title`)
-        this.input_year = this.component.querySelector(`${selector}_year`)
-        this.input_director = this.component.querySelector(`${selector}_director`)
+        this.component = component;
+        this.input_title = this.component.querySelector(".movie_title")
+        this.input_year = this.component.querySelector(".movie_year")
+        this.input_director = this.component.querySelector(".movie_director")
         // Listen for changes to title input
         this.input_title.addEventListener('input', this.inputListener.bind(this));
     }

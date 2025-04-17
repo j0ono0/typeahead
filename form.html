@@ -17,35 +17,35 @@
     <form action="" method="get" class="form-film-list">
         <div class="film-entry" id="film_01">
             <label for="film_01_title">Title: </label>
-            <input type="text" title="Film title" name="film_01_title" id="film_01_title" required />
+            <input type="text" class="movie_title" title="Film title" name="film_01_title" id="film_01_title" required />
             
             <label for="film_01_year">Year: </label>
-            <input type="text" title="Year of production" name="film_01_year" id="film_01_year" />
+            <input type="text" class="movie_year" title="Year of production" name="film_01_year" id="film_01_year" />
             
             <label for="film_01_director">Director: </label>
-            <input type="text" title="Director of film" name="film_01_director" id="film_01_director"/>       
+            <input type="text" class="movie_director" title="Director of film" name="film_01_director" id="film_01_director"/>       
         </div>
 
         <div class="film-entry" id="film_02">
             <label for="film_02_title">Title: </label>
-            <input type="text" title="Film title" name="film_02_title" id="film_02_title" required />
+            <input type="text" class="movie_title" title="Film title" name="film_02_title" id="film_02_title" required />
             
             <label for="film_02_year">Year: </label>
-            <input type="text" title="Year of production" name="film_02_year" id="film_02_year" />
+            <input type="text" class="movie_year" title="Year of production" name="film_02_year" id="film_02_year" />
             
             <label for="film_02_director">Director: </label>
-            <input type="text" title="Director of film" name="film_02_director" id="film_02_director"/>       
+            <input type="text"class="movie_director" title="Director of film" name="film_02_director" id="film_02_director"/>       
         </div>
 
         <div class="film-entry" id="film_03">
             <label for="film_03_title">Title: </label>
-            <input type="text" title="Film title" name="film_03_title" id="film_03_title" required />
+            <input type="text" class="movie_title" title="Film title" name="film_03_title" id="film_03_title" required />
             
             <label for="film_03_year">Year: </label>
-            <input type="text" title="Year of production" name="film_03_year" id="film_03_year" />
+            <input type="text" class="movie_year" title="Year of production" name="film_03_year" id="film_03_year" />
             
             <label for="film_03_director">Director: </label>
-            <input type="text" title="Director of film" name="film_03_director" id="film_03_director"/>       
+            <input type="text"class="movie_director" title="Director of film" name="film_03_director" id="film_03_director"/>       
         </div>
 
         <div class="form-film-list">
@@ -61,7 +61,7 @@
     <script  type="module">
         import {tmdb_token} from './tmdb_token.js'
         document.querySelectorAll(".film-entry").forEach(entry=>{
-            new Typeahead( 1000, "#"+entry.id, tmdb_token);
+            new Typeahead( 1000, entry, tmdb_token);
         })
     </script>
 </body>
